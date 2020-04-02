@@ -13,7 +13,7 @@
 #------------------------------------------------------
 # TODO: Completar con su path
 #------------------------------------------------------
-proyectoActual="path de mi proyecto gitlab"
+proyectoActual="home/emiliano/tp-sor"
 
 #------------------------------------------------------
 # DISPLAY MENU
@@ -31,7 +31,10 @@ imprimir_menu () {
     echo -e "\t\t\t b.  Guardar cambios";
     echo -e "\t\t\t c.  Actualizar repo";
     echo -e "\t\t\t f.  Abrir en terminal";        
-    echo -e "\t\t\t g.  Abrir en carpeta"; 
+    echo -e "\t\t\t g.  Abrir en carpeta";
+    echo -e "\t\t\t h.  Archivos del repositorio"; 
+    echo -e "\t\t\t i.  Busquedas";
+ 
     
     echo -e "\t\t\t q.  Salir";
     echo "";
@@ -118,6 +121,22 @@ g_funcion () {
 	imprimir_encabezado "\tOpción g.  Abrir en carpeta";        
 	decidir "gnome-open $proyectoActual &";
 }
+h_funcion () {
+	imprimir_encabezado "\tOpción h. Ver todos los archivos del repositorio";
+	ls -la
+	ls -la > cantidadArchivos.txt
+}
+i_funcion (){
+	imprimir_encabezado "\t0pción i. Busquedas";
+	echo "Ingresa la palabra que quieres buscar"
+	read mensaje1
+	echo "Ingresa el nombre del archivo en el que quieres buscar coincidencias"
+	read mensaje2
+	grep $mensaje1 $mensaje2
+	grep $mensaje1 $mensaje2 >> busquedasTotales.txt
+	echo "¿Quieres visualizar todas las busquedas que fueron realizadas?"
+	decidir "cat busquedasTotales.txt"
+}
 
 #------------------------------------------------------
 # TODO: Completar con el resto de ejercicios del TP, una funcion por cada item
@@ -143,6 +162,9 @@ do
         e|E) e_funcion;;
         f|F) f_funcion;;
         g|G) g_funcion;;
+	h|H) h_funcion;;
+	i|I) i_funcion;;
+
         q|Q) break;;
         *) malaEleccion;;
     esac

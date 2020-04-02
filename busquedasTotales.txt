@@ -1,0 +1,1 @@
+       	echo "Ingrese mensaje para el commit:";
