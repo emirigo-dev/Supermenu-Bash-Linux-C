@@ -13,7 +13,7 @@
 #------------------------------------------------------
 # TODO: Completar con su path
 #------------------------------------------------------
-proyectoActual="/home/cris/tp-sor"
+proyectoActual="/home/emiliano/tp-sor"
 #------------------------------------------------------
 # DISPLAY MENU
 #------------------------------------------------------
@@ -145,13 +145,15 @@ i_funcion (){
 
 imprimirEstado () {
 
-var=$((git status)2>&1);
+git fetch origin 2>&1 > redireccionMsj.txt
 
-if [ "$var" = "" ]
+var1=$((git log HEAD..origin/master --oneline) 2>&1);
+
+if [[ $var1 = "" ]];
 then
 	echo -e "";
 else
-	echo -e "\t\t Es necesario realizar un pull";
+	echo -e "\t\t Es necesario realizar un pull antes de continuar";
 fi
 
 }
