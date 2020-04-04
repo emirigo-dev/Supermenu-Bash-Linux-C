@@ -13,7 +13,7 @@
 #------------------------------------------------------
 # TODO: Completar con su path
 #------------------------------------------------------
-proyectoActual="/home/emiliano/tp-sor"
+proyectoActual="/home/cris/tp-sor"
 #------------------------------------------------------
 # DISPLAY MENU
 #------------------------------------------------------
@@ -22,7 +22,9 @@ imprimir_menu () {
 	
     echo -e "\t\t El proyecto actual es:";
     echo -e "\t\t $proyectoActual";
-    
+
+    echo -e "\t\t";    
+    imprimirEstado;
     echo -e "\t\t";
     echo -e "\t\t Opciones:";
     echo "";
@@ -141,7 +143,18 @@ i_funcion (){
 # TODO: Completar con el resto de ejercicios del TP, una funcion por cada item
 #------------------------------------------------------
 
+imprimirEstado () {
 
+var=$((git status)2>&1);
+
+if [ "$var" = "" ]
+then
+	echo -e "";
+else
+	echo -e "\t\t Es necesario realizar un pull";
+fi
+
+}
 
 #------------------------------------------------------
 # LOGICA PRINCIPAL
