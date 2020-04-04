@@ -13,7 +13,7 @@
 #------------------------------------------------------
 # TODO: Completar con su path
 #------------------------------------------------------
-proyectoActual="home/emiliano/tp-sor"
+proyectoActual="/home/emiliano/tp-sor"
 
 #------------------------------------------------------
 # DISPLAY MENU
