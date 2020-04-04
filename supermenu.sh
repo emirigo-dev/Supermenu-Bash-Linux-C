@@ -151,7 +151,7 @@ var1=$((git log HEAD..origin/master --oneline) 2>&1);
 
 if [[ $var1 = "" ]];
 then
-	echo -e "";
+	echo -e "\t\t Todos los datos estan actualizados";
 else
 	echo -e "\t\t Es necesario realizar un pull antes de continuar";
 fi
