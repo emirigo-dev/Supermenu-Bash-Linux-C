@@ -1,4 +1,2 @@
--rw-r--r--  1 cris cris      0 abr  6 17:26 cantidadArchivos.txt
--rw-r--r--  1 cris cris      0 abr  6 17:26 cantidadArchivos.txt
 -rw-r--r--  1 cris cris      0 abr  7 01:18 cantidadArchivos.txt
--rw-r--r--  1 cris cris 117757 abr  6 17:25 Informe.odt
+-rw-r--r--  1 cris cris      0 abr  7 01:18 cantidadArchivos.txt

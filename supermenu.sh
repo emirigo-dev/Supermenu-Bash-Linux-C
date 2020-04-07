@@ -23,9 +23,9 @@ imprimir_menu () {
     echo -e "\t\t El proyecto actual es:";
     echo -e "\t\t $proyectoActual";
 
-    echo -e "\t\t";    
+    echo -e "";    
     imprimirEstado;
-    echo -e "\t\t";
+    echo -e "";
     echo -e "\t\t Opciones:";
     echo "";
     echo -e "\t\t\t a.  Ver estado del proyecto";
@@ -33,10 +33,9 @@ imprimir_menu () {
     echo -e "\t\t\t c.  Actualizar repo";
     echo -e "\t\t\t d.  Archivos del repositorio"; 
     echo -e "\t\t\t e.  Busquedas";
-    echo -e "\t\t\t f.  Abrir en terminal";        
-    echo -e "\t\t\t g.  Abrir en carpeta";
-
- 
+    echo -e "\t\t\t f.  Vaciar registro de busquedas";
+    echo -e "\t\t\t g.  Abrir en terminal";        
+    echo -e "\t\t\t h.  Abrir en carpeta";
     
     echo -e "\t\t\t q.  Salir";
     echo "";
@@ -116,27 +115,36 @@ c_funcion () {
 d_funcion () {
 	imprimir_encabezado "Opción d. Ver archivos del repositorio";
 	ls -la
-	ls -la > cantidadArchivos.txt
+    echo "";
+    echo "Actualizar el registro de Archivos";
+	decidir "ls -la > cantidadArchivos.txt";
 }
 
 e_funcion (){
 	imprimir_encabezado "\tOpción e. Busquedas";
-	echo "Ingresa la palabra que quieres buscar"
+	echo "Ingresa la palabra que quieres buscar:";
 	read mensaje1;
-	echo "Ingresa el nombre del archivo en el que quieres buscar coincidencias"
+    echo "";
+	echo "Ingresa el nombre del archivo en el que quieres buscar coincidencias:";
 	read mensaje2;
-	grep $mensaje1 $mensaje2 
-	grep $mensaje1 $mensaje2 >> busquedasTotales.txt
-	echo "¿Quieres visualizar todas las busquedas que fueron realizadas?"
+	grep $mensaje1 $mensaje2;
+	grep $mensaje1 $mensaje2 >> busquedasTotales.txt;
+    echo "";
+	echo "Visualizar el registro de busquedas realizadas:";
 	decidir "cat busquedasTotales.txt | sort";
 }
-
 f_funcion () {
+    imprimir_encabezado "Opción f. Vaciar registro de busquedas";
+    echo "Vaciar la lista de busquedas realizadas";
+    decidir "cat /dev/null > busquedasTotales.txt";
+}
+
+g_funcion () {
 	imprimir_encabezado "\tOpción f.  Abrir en terminal";        
 	decidir "cd $proyectoActual; xterm &";
 }
 
-g_funcion () {
+h_funcion () {
 	imprimir_encabezado "\tOpción g.  Abrir en carpeta";        
 	decidir "gnome-open $proyectoActual &";
 }
@@ -179,12 +187,9 @@ do
         e|E) e_funcion;;
         f|F) f_funcion;;
         g|G) g_funcion;;
-	# h|H) h_funcion;;
-	# i|I) i_funcion;;
-
+        h|H) h_funcion;;
         q|Q) break;;
         *) malaEleccion;;
     esac
     esperar;
 done
- 
