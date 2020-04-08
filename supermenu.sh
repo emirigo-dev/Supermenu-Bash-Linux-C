@@ -157,7 +157,7 @@ h_funcion () {
 
 imprimirEstado () {
 
-git fetch origin 2>&1 > redireccionMsj.txt
+git fetch origin 2>&1 > /dev/null
 
 var1=$((git log HEAD..origin/master --oneline) 2>&1);
 
