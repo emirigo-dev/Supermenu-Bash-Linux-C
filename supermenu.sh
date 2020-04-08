@@ -26,6 +26,7 @@ imprimir_menu () {
     echo -e "";    
     imprimirEstado;
     echo -e "";
+    echo -e "";
     echo -e "\t\t Opciones:";
     echo "";
     echo -e "\t\t\t a.  Ver estado del proyecto";
