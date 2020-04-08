@@ -26,10 +26,8 @@ imprimir_menu () {
     echo -e "";    
     imprimirEstado;
     echo -e "";
-    echo -e "";
     echo -e "\t\t Opciones:";
     echo "";
-
     echo -e "\t\t\t a.  Ver estado del proyecto";
     echo -e "\t\t\t b.  Guardar cambios";
     echo -e "\t\t\t c.  Actualizar repo";
@@ -156,9 +154,9 @@ h_funcion () {
 # TODO: Completar con el resto de ejercicios del TP, una funcion por cada item
 #------------------------------------------------------
 
-imprimirEstado () {
+imprimirEstado () { 
 
-git fetch origin --quiet
+git fetch origin 2>&1 > redireccionMsj.txt
 
 var1=$((git log HEAD..origin/master --oneline) 2>&1);
 
