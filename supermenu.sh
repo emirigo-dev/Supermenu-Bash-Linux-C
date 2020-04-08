@@ -158,7 +158,7 @@ h_funcion () {
 
 imprimirEstado () {
 
-git fetch origin --quiet
+git fetch origin
 
 var1=$((git log HEAD..origin/master --oneline) 2>&1);
 
