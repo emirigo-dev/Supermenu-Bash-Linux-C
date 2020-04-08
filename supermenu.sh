@@ -29,6 +29,7 @@ imprimir_menu () {
     echo -e "";
     echo -e "\t\t Opciones:";
     echo "";
+
     echo -e "\t\t\t a.  Ver estado del proyecto";
     echo -e "\t\t\t b.  Guardar cambios";
     echo -e "\t\t\t c.  Actualizar repo";
