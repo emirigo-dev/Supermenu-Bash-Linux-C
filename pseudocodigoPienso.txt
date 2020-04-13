@@ -1,24 +1,33 @@
-thread 1              thread2        thread 3     thread 4     thread 5       thread 6       thread 7
+thread 1            thread2        thread 3     thread 4     thread 5       thread 6       thread 7
 
-wait(seven)          wait(a)         wait(b)      wait(c)      wait(five)     wait(d)        wait(e)
-print(Pienso)        print()         print()      print()      print(Existo)        print()        print()
+wait(one)	    wait(a)        wait(b)      wait(c)      wait(five)     wait(d)        wait(e)
 
-signal(a)            signal(aux)    signal(aux)   signal(aux)  signal(d)      signal(aux2)   signal(aux2)
-signal(b)                                                      signal(e)
+print(textA)        print(textB)   print(textc) print(textD) print(textE)   print(textF)   print(textG)
+
+signal(a)           signal(aux)    signal(aux)  signal(aux)  signal(d)      signal(aux2)   signal(aux2)
+signal(b)                                                    signal(e)
 signal(c)                                   
-wait(aux)                                                      wait(aux2)
-wait(aux)						       wait(aux2)		
+wait(aux)                                                    wait(aux2)
+wait(aux)						     wait(aux2)		
 wait(aux)                                                      
-signal(five)						       signal(seven)				
+signal(five)						     signal(one)				
 
 
 
 sem a = 0
 sem b = 0
 sem c = 0
-sem five = 0
-sem aux = 0
-sem seven = 1
 sem d = 0
 sem e = 0
+sem five = 0
+sem one = 1
+sem aux = 0
 sem aux2 = 0
+
+textA = "Pienso";
+textB = "Mientras lavo los platos";
+textC = "Mientras limpio el piso";
+textD = "Mientras riego las plantas";
+textE = "Existo!";
+textF = "Hablar";
+textG = "Tomar una desicion";
