@@ -15,7 +15,7 @@ sem_t Parametro;
 static void * thread1(void* arg) {	
 	while(1)   {
 
-	        sem_wait(&Parametro);
+	       // sem_wait(&Parametro);
 		sem_wait(&ONE);
 		printf("\nPienso\n");
 		sem_post(&A);
@@ -79,7 +79,8 @@ static void * thread7(void* arg) {
 int main(void)    {
 	int cantVeces;
 	printf ("Ingrese cantidad de veces que quiere que se repita");
-	scanf("%d",&cantVeces);	
+	scanf("%d",&cantVeces);
+	for(int i = 0; i<cantVeces; i++){	
 	pthread_t thread_1, thread_2, thread_3, thread_4, thread_5, thread_6, thread_7;
 	sem_init(&A,0,0);
 	sem_init(&B,0,0);
@@ -90,7 +91,7 @@ int main(void)    {
     sem_init(&AUX2,0,0);
     sem_init(&FIVE,0,0);
     sem_init(&ONE,0,1);
-    sem_init(&Parametro,0,cantVeces);
+    //sem_init(&Parametro,0,cantVeces);
 
 	pthread_create(&thread_1, NULL, *thread1, NULL);
 	pthread_create(&thread_2, NULL, *thread2, NULL);
@@ -117,7 +118,8 @@ int main(void)    {
     sem_destroy(&ONE);
     sem_destroy(&AUX1);
     sem_destroy(&AUX2);
-    sem_destroy(&Parametro);
+   // sem_destroy(&Parametro);
     pthread_exit(NULL);
 	return 0;
+}
 }
