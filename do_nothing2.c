@@ -27,7 +27,7 @@ int main() {
   pid_t proc;
   proc = fork();
 
-  do_nothing(15000000,msg); //esperar 2 segundos, 1 millon de microsegundos en 1 segundo 
+  do_nothing(10000000,msg); //esperar 2 segundos, 1 millon de microsegundos en 1 segundo 
   do_nothing_random(msg);  //esperar un tiempo random antes de imprimir el mensaje
   return 0;
 }
