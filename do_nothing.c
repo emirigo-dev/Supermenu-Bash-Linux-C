@@ -6,39 +6,36 @@
 #include <sys/wait.h>
 
 void do_nothing(int microseconds, char* mensaje){
-  usleep(microseconds); //dormir el thread, simula que esta haciendo alguna tarea
+
+  usleep(microseconds); 
   printf("\n %s \n",mensaje);   
+
 }
 
 void do_nothing_random(char* mensaje){
-  srand(time(NULL));                    //inicializar la semilla del generador random:
-  int microseconds = rand() % 1000 + 1; //generar un numer random entre 1 y 1000:
-  usleep(microseconds);                 //dormir el thread, simula que esta haciendo alguna tarea
+
+  srand(time(NULL));                    
+  int microseconds = rand() % 1000 + 1; 
+  usleep(microseconds);   
+
   printf("\n %s \n",mensaje); 
 }
 
 
 int main() {
+  
   char* msg= "hola";
-  pid_t proc;
 
+  pid_t proc;	
   proc = fork();
-  if (proc == 0){
-    do_nothing(2000000,msg); //esperar 2 segundos, 1 millon de microsegundos en 1 segundo
-    do_nothing_random(msg);  //esperar un tiempo random antes de imprimir el mensaje
-  }
-
-  else if (proc > 0){
-    do_nothing(2000000,msg);
-    do_nothing_random(msg);
-  }
-
-  else{
-    printf("Error");
-  }
 
   int status;
-  wait(&status);
 
+  if (proc > 0){
+    wait(&status); 
+  }
+
+  do_nothing(10000000,msg);
+  do_nothing_random(msg); 
   return 0;
 }

@@ -4,24 +4,30 @@
 #include <time.h>   //para inicializar el tiempo
 
 void do_nothing(int microseconds, char* mensaje){
-  usleep(microseconds); //dormir el thread, simula que esta haciendo alguna tarea
+
+  usleep(microseconds); 
   printf("\n %s \n",mensaje);   
+  
 }
 
 void do_nothing_random(char* mensaje){
-  srand(time(NULL));                    //inicializar la semilla del generador random:
-  int microseconds = rand() % 1000 + 1; //generar un numer random entre 1 y 1000:
-  usleep(microseconds);                 //dormir el thread, simula que esta haciendo alguna tarea
+
+  srand(time(NULL));
+  int microseconds = rand() % 1000 + 1;
+  usleep(microseconds);
+
   printf("\n %s \n",mensaje);   
 }
 
 
 int main() {
-  char* msg= "hola";
-   pid_t proc;
 
+  char* msg= "hola";
+
+  pid_t proc;
   proc = fork();
-  do_nothing(2000000,msg); //esperar 2 segundos, 1 millon de microsegundos en 1 segundo 
+
+  do_nothing(15000000,msg); //esperar 2 segundos, 1 millon de microsegundos en 1 segundo 
   do_nothing_random(msg);  //esperar un tiempo random antes de imprimir el mensaje
   return 0;
 }
