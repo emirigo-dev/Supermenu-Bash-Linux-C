@@ -1,10 +1,14 @@
-total 140
-drwxr-xr-x  3 cris cris   4096 abr  7 01:18 .
-drwxr-xr-x 34 cris cris   4096 abr  6 17:25 ..
--rw-r--r--  1 cris cris    130 abr  7 00:07 busquedasTotales.txt
--rw-r--r--  1 cris cris      0 abr  6 17:25 busquedasTotales.txt.save
--rw-r--r--  1 cris cris      0 abr  7 01:18 cantidadArchivos.txt
-drwxr-xr-x  8 cris cris   4096 abr  6 17:26 .git
--rw-r--r--  1 cris cris 117757 abr  6 17:25 Informe.odt
--rw-r--r--  1 cris cris      0 abr  7 01:18 redireccionMsj.txt
--rwxr-xr-x  1 cris cris   5194 abr  7 01:18 supermenu.sh
+total 336
+drwxr-xr-x  3 emiliano emiliano   4096 abr 10 11:33 .
+drwxr-xr-x 31 emiliano emiliano   4096 abr  8 16:01 ..
+-rw-r--r--  1 emiliano emiliano    130 abr  7 20:42 busquedasTotales.txt
+-rw-r--r--  1 emiliano emiliano      0 abr  4 20:23 busquedasTotales.txt.save
+-rw-r--r--  1 emiliano emiliano      0 abr 10 11:34 cantidadArchivos.txt
+-rw-r--r--  1 emiliano emiliano    989 abr 10 11:33 do_nothing2.c
+-rwxr-xr-x  1 emiliano emiliano   1209 abr 10 11:33 do_nothing.c
+drwxr-xr-x  8 emiliano emiliano   4096 abr 10 11:33 .git
+-rw-rw-r--  1 emiliano emiliano 299082 abr  9 15:57 Informe.odt
+-rw-r--r--  1 emiliano emiliano      0 abr  7 20:43 redireccionMsj.txt
+-rw-r--r--  1 emiliano emiliano   2338 abr 10 11:33 sincronizacionPrueba.c
+-rwxrwxrwx  1 emiliano emiliano   5480 abr  7 23:46 supermenu.sh
+-rw-r--r--  1 emiliano emiliano   1024 abr  9 15:38 .supermenu.sh.swp
