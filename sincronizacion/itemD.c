@@ -1,7 +1,10 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdio.h>
+#include <stdlib.h>
 
+int cantVeces;
+int contador = 0;
 sem_t A;
 sem_t B;
 sem_t C;
@@ -11,15 +14,18 @@ sem_t AUX;
 sem_t AUX2;
 
 static void * thread1(void* arg) {	
-	while(1)   {
-        sem_wait(&E);
+	while(1  && (contador<(cantVeces * 7)))   {
+		contador++;
+	        sem_wait(&E);
 		printf("\nPienso.\n");
 		sem_post(&A);
+	
 	}
 }
 
 static void * thread2(void* arg)  {
-	while(1)    {
+	while(1  && (contador<(cantVeces * 7)))    {
+		contador++;
 		sem_wait(&A);
 		printf("Mientras lavo los platos, ");
 		sem_post(&B);
@@ -27,22 +33,25 @@ static void * thread2(void* arg)  {
 }
 
 static void * thread3(void* arg)    {	
-	while(1)    {
+	while(1  && (contador<(cantVeces * 7)))   {
+		contador++;
 		sem_wait(&B);
 		printf("Mientras limpio el piso, ");
         sem_post(&C);
 	}
 }
 static void * thread4(void* arg) {	
-	while(1)   {
-        sem_wait(&C);
+	while(1  && (contador<(cantVeces * 7)))  {
+		contador++;
+	        sem_wait(&C);
 		printf("Mientras riego las plantas.");
 		sem_post(&D);
 	}
 }
 static void * thread5(void* arg) {	
-	while(1)   {
-        sem_wait(&D);
+	while(1  && (contador<(cantVeces * 7)))   {
+		contador++;
+	        sem_wait(&D);
 		printf("\nExisto!\n");
 		sem_post(&AUX);
 		sem_post(&AUX);
@@ -52,21 +61,25 @@ static void * thread5(void* arg) {
 	}
 }
 static void * thread6(void* arg) {	
-	while(1)   {
+	while(1 && (contador<(cantVeces * 7))) {
+		contador++;		
 		sem_wait(&AUX);
 		printf("Hablar, ");
 		sem_post(&AUX2);
 	}
 }
 static void * thread7(void* arg) {	
-	while(1)   {
+	while(1 && (contador<(cantVeces * 7)))  {
+		contador++;		
 		sem_wait(&AUX);
-		printf("tomar una desicion.");
+		printf("Tomar una desicion. ");
 		sem_post(&AUX2);
 	}
 }
 
 int main(void)    {
+	printf ("Ingrese cantidad de veces que quiere que se repita");
+	scanf("%d",&cantVeces);
 	pthread_t thread_1, thread_2, thread_3, thread_4, thread_5, thread_6, thread_7;
 	sem_init(&A,0,0);
 	sem_init(&B,0,0);
