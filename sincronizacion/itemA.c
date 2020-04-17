@@ -13,16 +13,16 @@ sem_t F;
 sem_t G;
 
 static void * thread1(void* arg) {	
-	while(1 && (contador<(cantVeces * 7)))   {
+	while(contador<(cantVeces * 7))		{
 		contador++;
-	        sem_wait(&G);
+	    sem_wait(&G);
 		printf("\nPienso.\n");
 		sem_post(&A);
 	}
 }
 
 static void * thread2(void* arg)  {
-	while(1 && (contador<(cantVeces * 7)))    {
+	while(contador<(cantVeces * 7))		{
 		contador++;		
 		sem_wait(&A);
 		printf("Mientras lavo los platos, ");
@@ -31,7 +31,7 @@ static void * thread2(void* arg)  {
 }
 
 static void * thread3(void* arg)    {	
-	while(1 && (contador<(cantVeces * 7)))    {
+	while(contador<(cantVeces * 7))		{
 		contador++;
 		sem_wait(&B);
 		printf("Mientras limpio el piso, ");
@@ -39,7 +39,7 @@ static void * thread3(void* arg)    {
 	}
 }
 static void * thread4(void* arg) {	
-	while(1 && (contador<(cantVeces * 7)))   {
+	while(contador<(cantVeces * 7))		{
 		contador++;
 	        sem_wait(&C);
 		printf("Mientras riego las plantas.");
@@ -47,15 +47,15 @@ static void * thread4(void* arg) {
 	}
 }
 static void * thread5(void* arg) {	
-	while(1 && (contador<(cantVeces * 7)))   {
+	while(contador<(cantVeces * 7))		{
 		contador++;
-	        sem_wait(&D);
+	    sem_wait(&D);
 		printf("\nExisto!\n");
 		sem_post(&E);
 	}
 }
 static void * thread6(void* arg) {	
-	while(1 && (contador<(cantVeces * 7)))   {
+	while(contador<(cantVeces * 7))		{
 		contador++;
 	        sem_wait(&E);
 		printf("Hablar, ");
@@ -63,7 +63,7 @@ static void * thread6(void* arg) {
 	}
 }
 static void * thread7(void* arg) {	
-	while(1 && (contador<(cantVeces * 7)))   {
+	while(contador<(cantVeces * 7))		{
 		contador++;
 	        sem_wait(&F);
 		printf("tomar una desicion.");
