@@ -18,10 +18,6 @@ static void * thread1(void* arg) {
 		contador++;
 	        sem_wait(&G);
 		printf("\nPienso.\n");
-		sem_post(&A);
-		sem_wait(&AUX);
-		sem_wait(&AUX);
-		sem_wait(&AUX);
 		sem_post(&D);
 	}
 }
@@ -32,7 +28,7 @@ static void * thread2(void* arg)  {
 		sem_wait(&A);
 		printf("Mientras lavo los platos, ");
 		sem_post(&B);
-		sem_post(&AUX);
+		
 
 	}
 }
@@ -43,7 +39,7 @@ static void * thread3(void* arg)    {
 		sem_wait(&B);
 		printf("mientras limpio el piso, ");
 		sem_post(&C);
-	        sem_post(&AUX);
+	        
 	}
 }
 static void * thread4(void* arg) {	
@@ -51,7 +47,7 @@ static void * thread4(void* arg) {
 		contador++;
 	        sem_wait(&C);
 		printf("mientras riego las plantas.\n");
-		sem_post(&AUX);
+		sem_post(&E);
 	}
 }
 static void * thread5(void* arg) {	
@@ -59,7 +55,7 @@ static void * thread5(void* arg) {
 		contador++;
 	        sem_wait(&D);
 		printf("\nExisto!\n");
-		sem_post(&E);
+		sem_post(&A);		
 	}
 }
 static void * thread6(void* arg) {	
