@@ -6,7 +6,6 @@ int cantVeces;
 int contador;
 
 sem_t A;
-sem_t B;
 sem_t C;
 sem_t D;
 sem_t E;
@@ -16,9 +15,9 @@ sem_t AUX;
 sem_t AUX2;
 
 static void * thread1(void* arg) {	
-	while(contador<(cantVeces * 7))   {
+	while(contador<(cantVeces * 7)){
 		contador++;
-       		sem_wait(&A);
+        sem_wait(&A);
 		printf("\nPienso\n");
 		sem_post(&E);
 		sem_post(&F);
@@ -27,8 +26,8 @@ static void * thread1(void* arg) {
 	}
 }
 
-static void * thread2(void* arg)  {
-	while(contador<(cantVeces * 7))    {
+static void * thread2(void* arg) {
+	while(contador<(cantVeces * 7)){
 		contador++;
 		sem_wait(&E);
 		sem_wait(&AUX2);
@@ -38,8 +37,8 @@ static void * thread2(void* arg)  {
 	}
 }
 
-static void * thread3(void* arg)    {	
-	while(contador<(cantVeces * 7))    {
+static void * thread3(void* arg) {	
+	while(contador<(cantVeces * 7)){
 		contador++;
 		sem_wait(&F);
 		sem_wait(&AUX2);
@@ -49,7 +48,7 @@ static void * thread3(void* arg)    {
 	}
 }
 static void * thread4(void* arg) {	
-	while(contador<(cantVeces * 7))   {
+	while(contador<(cantVeces * 7)){
 		contador++;
 		sem_wait(&G);
 		sem_wait(&AUX2);
@@ -59,7 +58,7 @@ static void * thread4(void* arg) {
 	}
 }
 static void * thread5(void* arg) {	
-	while(contador<(cantVeces * 7))   {
+	while(contador<(cantVeces * 7)){
 		contador++;
 		sem_wait(&AUX);
 		sem_wait(&AUX);
@@ -69,7 +68,7 @@ static void * thread5(void* arg) {
 	}
 }
 static void * thread6(void* arg) {	
-	while(contador<(cantVeces * 7))   {
+	while(contador<(cantVeces * 7)){
 		contador++;
 	    sem_wait(&C);
 		printf("Hablar, ");
@@ -77,7 +76,7 @@ static void * thread6(void* arg) {
 	}
 }
 static void * thread7(void* arg) {	
-	while(contador<(cantVeces * 7))   {
+	while(contador<(cantVeces * 7)){
 		contador++;
         sem_wait(&D);
 		printf("tomar una desicion.\n");
@@ -91,13 +90,12 @@ int main(void)    {
 	pthread_t thread_1, thread_2, thread_3, thread_4, thread_5, thread_6, thread_7;
 	
 	sem_init(&A,0,1);
-	sem_init(&B,0,0);
-    	sem_init(&C,0,0);
-    	sem_init(&D,0,0);	
+    sem_init(&C,0,0);
+    sem_init(&D,0,0);	
 	sem_init(&E,0,0);
 	sem_init(&F,0,0);    
-        sem_init(&AUX,0,0);
-        sem_init(&AUX2,0,0);
+    sem_init(&AUX,0,0);
+    sem_init(&AUX2,0,0);
 	
 	pthread_create(&thread_1, NULL, *thread1, NULL);
 	pthread_create(&thread_2, NULL, *thread2, NULL);
@@ -116,12 +114,11 @@ int main(void)    {
 	pthread_join(thread_7, NULL);
 
 	sem_destroy(&A);
-	sem_destroy(&B);
-        sem_destroy(&C);
-        sem_destroy(&D);
+    sem_destroy(&C);
+    sem_destroy(&D);
 	sem_destroy(&E);
 	sem_destroy(&F);
-        sem_destroy(&AUX);
+    sem_destroy(&AUX);
 	sem_destroy(&AUX2);
 	pthread_exit(NULL);
 	return 0;

@@ -13,7 +13,7 @@ sem_t F;
 sem_t G;
 
 static void * thread1(void* arg) {	
-	while(contador<(cantVeces * 7))		{
+	while(contador<(cantVeces * 7)){
 		contador++;
 	    sem_wait(&G);
 		printf("\nPienso.\n");
@@ -22,7 +22,7 @@ static void * thread1(void* arg) {
 }
 
 static void * thread2(void* arg)  {
-	while(contador<(cantVeces * 7))		{
+	while(contador<(cantVeces * 7)){
 		contador++;		
 		sem_wait(&A);
 		printf("Mientras lavo los platos, ");
@@ -31,48 +31,52 @@ static void * thread2(void* arg)  {
 }
 
 static void * thread3(void* arg)    {	
-	while(contador<(cantVeces * 7))		{
+	while(contador<(cantVeces * 7)){
 		contador++;
 		sem_wait(&B);
 		printf("Mientras limpio el piso, ");
-	        sem_post(&C);
+	    sem_post(&C);
 	}
 }
+
 static void * thread4(void* arg) {	
-	while(contador<(cantVeces * 7))		{
+	while(contador<(cantVeces * 7)){
 		contador++;
-	        sem_wait(&C);
+	    sem_wait(&C);
 		printf("Mientras riego las plantas.");
 		sem_post(&D);
 	}
 }
+
 static void * thread5(void* arg) {	
-	while(contador<(cantVeces * 7))		{
+	while(contador<(cantVeces * 7)){
 		contador++;
 	    sem_wait(&D);
 		printf("\nExisto!\n");
 		sem_post(&E);
 	}
 }
+
 static void * thread6(void* arg) {	
-	while(contador<(cantVeces * 7))		{
+	while(contador<(cantVeces * 7)){
 		contador++;
-	        sem_wait(&E);
+	    sem_wait(&E);
 		printf("Hablar, ");
 		sem_post(&F);
 	}
 }
+
 static void * thread7(void* arg) {	
-	while(contador<(cantVeces * 7))		{
+	while(contador<(cantVeces * 7)){
 		contador++;
-	        sem_wait(&F);
+	    sem_wait(&F);
 		printf("tomar una desicion.");
 		sem_post(&G);
 	}
 }
 
 int main(void)    {
-	printf ("Ingrese cantidad de veces que quiere que se repita");
+	printf ("Ingrese cantidad de veces que quiere que se repita:\n"s);
 	scanf("%d",&cantVeces);	
 	pthread_t thread_1, thread_2, thread_3, thread_4, thread_5, thread_6, thread_7;
 	sem_init(&A,0,0);
